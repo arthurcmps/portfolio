@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+# TODO: Sitemap absoluto gerado com SITE_URL no build.
