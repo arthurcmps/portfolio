@@ -1,1 +1,14 @@
-:root{--color-bg:#11100F;--color-bg-soft:#1A1816;--color-text:#F3EFE8;--color-text-dark:#1F1C19;--color-text-muted:#B9B1A6;--color-primary:#C65D3A;--color-accent:#D5A84C;--color-secondary:#536B50;--color-border:#302B27;--font-title:"Space Grotesk",system-ui,sans-serif;--font-body:Inter,system-ui,sans-serif;--radius:18px;}
+:root {
+    --color-bg: #11100F;
+    --color-bg-soft: #1A1816;
+    --color-text: #F3EFE8;
+    --color-text-dark: #1F1C19;
+    --color-text-muted: #B9B1A6;
+    --color-primary: #C65D3A;
+    --color-accent: #D5A84C;
+    --color-secondary: #536B50;
+    --color-border: #302B27;
+    --font-title: "Space Grotesk", system-ui, sans-serif;
+    --font-body: Inter, system-ui, sans-serif;
+    --radius: 18px;
+}

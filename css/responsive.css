@@ -1,1 +1,257 @@
-@media(min-width:768px){.menu-toggle{display:none}}@media(max-width:1199px){.wrap{width:calc(100% - 64px)}.hero{gap:40px;padding-block:70px}.geometry i:nth-child(4){border-width:22px}.projects-grid{gap:16px}.project-copy{padding:20px}.project-copy>p:not(.eyebrow){min-height:108px}.project-art{height:210px}.project-art>span{font-size:1.6rem}.about-grid{gap:40px}.stack-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:767px){.wrap{width:calc(100% - 40px)}.header{min-height:86px;flex-wrap:wrap;gap:12px;padding-block:14px}.brand{gap:12px;font-size:.875rem}.menu-toggle:not([hidden]){display:block}.header nav{width:100%;gap:24px;justify-content:space-between}.js .header nav{display:none}.js .header nav.open{display:flex}.hero{grid-template-columns:1fr;padding-block:48px 60px;gap:42px}.hero h1{font-size:clamp(2.5rem,10.5vw,4.5rem)}.hero-art{max-width:380px;width:100%;margin:auto}.hero-art .geometry{width:72%}.art-caption{margin-top:28px}.services-grid{grid-template-columns:1fr;gap:28px}.services{padding-bottom:30px}.section-heading{align-items:start;flex-direction:column;gap:18px}.projects-section{padding-block:42px 60px}.projects-grid{grid-template-columns:1fr;gap:26px}.project-art{height:240px}.project-art>span{font-size:2.3rem}.project-copy{padding:26px}.project-copy>p:not(.eyebrow){min-height:0}.about-section{padding-block:60px}.about-grid{grid-template-columns:1fr;gap:28px}.timeline{grid-template-columns:1fr 1fr;gap:28px;margin-top:38px}.timeline strong{font-size:1.7rem}.stack{padding-block:60px}.stack-grid{gap:24px}.contact{padding-block:50px 60px}.footer{flex-wrap:wrap;align-items:start}.footer .social{width:100%;order:3;gap:24px}.case-heading{padding:30px 0}.case-row{grid-template-columns:1fr;gap:20px;padding-block:30px}.case-narrative{margin-top:40px}.case-art{height:300px}.case-art .geometry{width:200px}.case-art>p{font-size:.75rem}.case-row h2 span{display:inline;margin-right:15px}}@media(max-width:370px){.actions{flex-direction:column}.stack-grid{grid-template-columns:1fr}.brand{gap:8px}.menu-toggle{padding:10px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.project:hover,.button:hover{transform:none}}
+@media(min-width:768px) {
+    .menu-toggle {
+        display: none
+    }
+}
+
+@media(max-width:1199px) {
+    .wrap {
+        width: calc(100% - 64px)
+    }
+
+    .hero {
+        gap: 40px;
+        padding-block: 70px
+    }
+
+    .geometry i:nth-child(4) {
+        border-width: 22px
+    }
+
+    .projects-grid {
+        gap: 16px
+    }
+
+    .project-copy {
+        padding: 20px
+    }
+
+    .project-copy>p:not(.eyebrow) {
+        min-height: 108px
+    }
+
+    .project-art {
+        height: 210px
+    }
+
+    .project-art>span {
+        font-size: 1.6rem
+    }
+
+    .about-grid {
+        gap: 40px
+    }
+
+    .stack-grid {
+        grid-template-columns: repeat(2, 1fr)
+    }
+}
+
+@media(max-width:767px) {
+    .wrap {
+        width: calc(100% - 40px)
+    }
+
+    .header {
+        min-height: 86px;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding-block: 14px
+    }
+
+    .brand {
+        gap: 12px;
+        font-size: .875rem
+    }
+
+    .menu-toggle:not([hidden]) {
+        display: block
+    }
+
+    .header nav {
+        width: 100%;
+        gap: 24px;
+        justify-content: space-between
+    }
+
+    .js .header nav {
+        display: none
+    }
+
+    .js .header nav.open {
+        display: flex
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding-block: 48px 60px;
+        gap: 42px
+    }
+
+    .hero h1 {
+        font-size: clamp(2.5rem, 10.5vw, 4.5rem)
+    }
+
+    .hero-art {
+        max-width: 380px;
+        width: 100%;
+        margin: auto
+    }
+
+    .hero-art .geometry {
+        width: 72%
+    }
+
+    .art-caption {
+        margin-top: 28px
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 28px
+    }
+
+    .services {
+        padding-bottom: 30px
+    }
+
+    .section-heading {
+        align-items: start;
+        flex-direction: column;
+        gap: 18px
+    }
+
+    .projects-section {
+        padding-block: 42px 60px
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 26px
+    }
+
+    .project-art {
+        height: 240px
+    }
+
+    .project-art>span {
+        font-size: 2.3rem
+    }
+
+    .project-copy {
+        padding: 26px
+    }
+
+    .project-copy>p:not(.eyebrow) {
+        min-height: 0
+    }
+
+    .about-section {
+        padding-block: 60px
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 28px
+    }
+
+    .timeline {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+        margin-top: 38px
+    }
+
+    .timeline strong {
+        font-size: 1.7rem
+    }
+
+    .stack {
+        padding-block: 60px
+    }
+
+    .stack-grid {
+        gap: 24px
+    }
+
+    .contact {
+        padding-block: 50px 60px
+    }
+
+    .footer {
+        flex-wrap: wrap;
+        align-items: start
+    }
+
+    .footer .social {
+        width: 100%;
+        order: 3;
+        gap: 24px
+    }
+
+    .case-heading {
+        padding: 30px 0
+    }
+
+    .case-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding-block: 30px
+    }
+
+    .case-narrative {
+        margin-top: 40px
+    }
+
+    .case-art {
+        height: 300px
+    }
+
+    .case-art .geometry {
+        width: 200px
+    }
+
+    .case-art>p {
+        font-size: .75rem
+    }
+
+    .case-row h2 span {
+        display: inline;
+        margin-right: 15px
+    }
+}
+
+@media(max-width:370px) {
+    .actions {
+        flex-direction: column
+    }
+
+    .stack-grid {
+        grid-template-columns: 1fr
+    }
+
+    .brand {
+        gap: 8px
+    }
+
+    .menu-toggle {
+        padding: 10px
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    html {
+        scroll-behavior: auto
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important
+    }
+
+    .project:hover,
+    .button:hover {
+        transform: none
+    }
+}
