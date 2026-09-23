@@ -19,3 +19,7 @@ A inspeção visual e os testes interativos de teclado, menu, zoom e responsivid
 Não houve publicação no GitHub Pages, validação de URLs externas, avaliação com leitor de tela nem verificação da disponibilidade dos projetos em lojas. São tarefas pendentes. Nenhuma métrica de adoção ou resultado foi criada.
 
 O README contém checklist manual e lista completa de conteúdo pendente. A revisão final com Arthur é necessária para confirmar o conteúdo dos cases e substituir as composições por imagens dos produtos.
+
+## Atualização dos carrosséis
+
+As três páginas receberam carrosséis com quatro placeholders editáveis e links de código fora dos slides. Build aprovado. Testes em Chromium headless aprovados nas larguras 360, 768 e 1440 px: setas, tecla End, retorno da última foto para a primeira, ausência de overflow horizontal da página e de erros JavaScript. Fallback sem JavaScript verificado; inspeção visual da área realizada. As mídias reais ainda serão fornecidas pelo proprietário.

@@ -211,3 +211,22 @@ nav a:hover,
     font-size: .875rem;
     overflow-wrap: anywhere
 }
+
+/* Galerias dos estudos de caso. Scroll nativo permite gesto de deslizar e uso sem JS. */
+.media-carousel{margin:28px 0 32px;min-width:0}
+.media-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:24px;border-radius:var(--radius);scrollbar-width:thin;scrollbar-color:var(--color-primary) var(--color-bg-soft);overscroll-behavior-x:contain}
+.media-track:focus-visible{outline:3px solid var(--color-accent);outline-offset:5px}
+.media-slide{flex:0 0 100%;width:100%;min-width:0;margin:0;scroll-snap-align:start;scroll-snap-stop:always}
+.media-placeholder,.media-image{height:clamp(240px,43vw,480px);border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-bg-soft)}
+.media-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:24px;color:var(--color-text-muted);border-style:dashed}
+.media-placeholder strong{font:500 clamp(1.25rem,3vw,2rem) var(--font-title);color:var(--color-text)}
+.media-placeholder>span:last-child{font-size:.875rem}
+.media-image{display:flex;align-items:center;justify-content:center;padding:12px;overflow:hidden}
+.media-image img{display:block;width:100%;height:100%;object-fit:contain}
+.media-image:focus-visible{outline-offset:-5px}
+.media-slide figcaption{padding:16px 4px 14px;font-size:.9375rem;color:var(--color-text-muted);line-height:1.5}
+.media-controls{display:flex;align-items:center;justify-content:center;gap:24px;margin-top:12px}
+.media-controls[hidden]{display:none}
+.media-arrow{width:48px;height:48px;border:1px solid #6f665d;border-radius:50%;background:var(--color-bg-soft);color:var(--color-text);font-size:1.3rem}
+.media-arrow:hover{border-color:var(--color-accent);color:var(--color-accent)}
+.media-counter{min-width:70px;text-align:center;font-size:.875rem;color:var(--color-text-muted)}
