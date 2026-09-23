@@ -221,7 +221,7 @@ nav a:hover,
 .media-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:24px;color:var(--color-text-muted);border-style:dashed}
 .media-placeholder strong{font:500 clamp(1.25rem,3vw,2rem) var(--font-title);color:var(--color-text)}
 .media-placeholder>span:last-child{font-size:.875rem}
-.media-image{display:flex;align-items:center;justify-content:center;padding:12px;overflow:hidden}
+.media-image{display:flex;align-items:center;justify-content:center;padding:12px;overflow:hidden;cursor:zoom-in}
 .media-image img{display:block;width:100%;height:100%;object-fit:contain}
 .media-image:focus-visible{outline-offset:-5px}
 .media-slide figcaption{padding:16px 4px 14px;font-size:.9375rem;color:var(--color-text-muted);line-height:1.5}
@@ -230,3 +230,16 @@ nav a:hover,
 .media-arrow{width:48px;height:48px;border:1px solid #6f665d;border-radius:50%;background:var(--color-bg-soft);color:var(--color-text);font-size:1.3rem}
 .media-arrow:hover{border-color:var(--color-accent);color:var(--color-accent)}
 .media-counter{min-width:70px;text-align:center;font-size:.875rem;color:var(--color-text-muted)}
+
+/* Destaque e lightbox das capturas dos projetos. */
+.case-cover{display:flex;width:100%;height:100%;align-items:center;justify-content:center;padding:16px;cursor:zoom-in}
+.case-cover img{display:block;width:100%;height:100%;object-fit:contain}
+body.lightbox-open{overflow:hidden}
+.lightbox[hidden]{display:none}
+.lightbox{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;padding:24px;background:rgba(9,8,8,.94);backdrop-filter:blur(8px)}
+.lightbox-panel{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;width:min(96vw,1500px);height:min(92vh,1000px);padding:56px 20px 20px;border:1px solid var(--color-border);border-radius:18px;background:#11100f;box-shadow:0 24px 80px rgba(0,0,0,.55)}
+.lightbox-image{display:block;max-width:100%;max-height:calc(100% - 54px);width:auto;height:auto;object-fit:contain}
+.lightbox-caption{margin:14px 0 0;color:var(--color-text-muted);font-size:.9375rem;text-align:center}
+.lightbox-close{position:absolute;top:14px;right:14px;width:42px;height:42px;border:1px solid #6f665d;border-radius:50%;background:#1c1a18;color:var(--color-text);font-size:1.7rem;line-height:1;cursor:pointer}
+.lightbox-close:hover,.lightbox-close:focus-visible{border-color:var(--color-accent);color:var(--color-accent)}
+@media (max-width:600px){.lightbox{padding:10px}.lightbox-panel{width:100%;height:94vh;padding:52px 10px 14px}.lightbox-close{top:8px;right:8px}}
