@@ -25,20 +25,19 @@ Vite é recomendado, mas não obrigatório na especificação. Esta versão usa 
 
 ## Publicar no GitHub Pages
 
-1. Crie um repositório público na conta desejada.
-2. Envie o conteúdo desta pasta para a branch main, incluindo .github/workflows/deploy.yml.
-3. Em Settings → Pages, selecione GitHub Actions como origem.
-4. Execute o workflow ou faça um push para main. O workflow faz build e publica dist.
-5. Confira o endereço fornecido pela execução e valide os links após a publicação.
+1. O código está em [arthurcmps/portfolio](https://github.com/arthurcmps/portfolio), na branch `master`.
+2. Em Settings → Pages, selecione GitHub Actions como origem.
+3. Faça um push para `master` ou execute o workflow **Publicar portfólio no GitHub Pages** na aba Actions. Ele faz o build e publica `dist`.
+4. Confira o endereço fornecido pela execução e valide os links após a publicação.
 
-Nenhum repositório remoto foi criado nem houve publicação nesta entrega. As URLs de código fornecidas são preservadas; sua disponibilidade não foi verificada externamente.
+A atualização do código no GitHub e a publicação do site são etapas distintas: consulte o resultado do workflow para confirmar o deploy.
 
 ## Organização
 
 - index.html: Home, serviços, projetos, trajetória, stack e contato.
 - projetos/: okan.html, voz-amiga.html e ecommerce.html.
 - css/: variables, reset, base, components, sections e responsive.
-- js/main.js: menu mobile com Escape e estados acessíveis.
+- js/main.js: menu mobile e carrosséis com teclado, gesto e estados acessíveis.
 - assets/images/: espaços reservados para profile, projects e og.
 - favicon.svg, robots.txt, sitemap.xml: identidade e descoberta.
 - scripts/: servidor local e build sem dependências.
@@ -48,7 +47,7 @@ Nenhum repositório remoto foi criado nem houve publicação nesta entrega. As U
 
 1. TODO: screenshots reais dos três produtos. As composições atuais são abstratas e identificadas como conceituais; não representam telas reais.
 2. TODO: imagem social PNG/JPEG e metatags og:image/twitter:image com URL definitiva. A metadata textual já existe.
-3. TODO: URL do repositório e demonstração do SaaS E-commerce. Não há links fictícios.
+3. TODO: demonstração pública do SaaS E-commerce. O [repositório e o roteiro de testes](https://github.com/arthurcmps/ecommerce-saas) já estão vinculados ao case.
 4. TODO: eventual URL da Google Play e confirmação atual da publicação Android do Okan.
 5. TODO: nome completo do empregador indicado apenas como “Grupo” no wireframe e detalhamento das datas/funções. O currículo citado não foi anexado.
 6. TODO: validar com o autor desafios efetivamente enfrentados, decisões de UX e resultados. Os cases distinguem pontos técnicos do escopo de alegações de experiência ou resultados não documentados.
@@ -71,3 +70,7 @@ Adicione imagens otimizadas em assets/images/projects, com width/height e alt si
 - [ ] Após publicar, conferir canonical, sitemap e compartilhamento social.
 
 Consulte VALIDACAO.md para as verificações efetivamente executadas nesta entrega. Itens desta lista não implicam testes concluídos.
+
+## Carrosséis de imagens
+
+As três páginas de projetos possuem uma galeria com quatro espaços em “Explore o projeto”. Consulte [GUIA_MIDIAS.md](GUIA_MIDIAS.md) para colocar suas fotos e editar as legendas. Navegação por setas, teclado e gesto; sem reprodução automática.
