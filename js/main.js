@@ -126,8 +126,8 @@ if (currentProjectMedia) {
     const coverLink = document.createElement('a');
     coverLink.className = 'case-cover';
     coverLink.href = currentProjectMedia.cover.src;
-    coverLink.target = '_blank';
-    coverLink.rel = 'noopener';
+    coverLink.dataset.lightbox = '';
+    coverLink.dataset.caption = currentProjectMedia.cover.caption;
     coverLink.setAttribute('aria-label', `Ampliar: ${currentProjectMedia.cover.caption}`);
 
     const coverImage = document.createElement('img');
@@ -149,8 +149,8 @@ if (currentProjectMedia) {
     const imageLink = document.createElement('a');
     imageLink.className = 'media-image';
     imageLink.href = media.src;
-    imageLink.target = '_blank';
-    imageLink.rel = 'noopener';
+    imageLink.dataset.lightbox = '';
+    imageLink.dataset.caption = media.caption;
     imageLink.setAttribute('aria-label', `Ampliar: ${media.caption}`);
 
     const image = document.createElement('img');
@@ -166,6 +166,64 @@ if (currentProjectMedia) {
 
     const caption = slide.querySelector('figcaption');
     if (caption) caption.textContent = media.caption;
+  });
+}
+
+// Lightbox acessível: amplia as capturas dentro da própria página.
+const lightboxTriggers = [...document.querySelectorAll('[data-lightbox]')];
+if (lightboxTriggers.length) {
+  const lightbox = document.createElement('div');
+  lightbox.className = 'lightbox';
+  lightbox.hidden = true;
+  lightbox.setAttribute('role', 'dialog');
+  lightbox.setAttribute('aria-modal', 'true');
+  lightbox.setAttribute('aria-label', 'Visualização ampliada da imagem');
+  lightbox.innerHTML = `
+    <div class="lightbox-panel" role="document">
+      <button type="button" class="lightbox-close" aria-label="Fechar imagem ampliada">×</button>
+      <img class="lightbox-image" src="" alt="">
+      <p class="lightbox-caption"></p>
+    </div>
+  `;
+  document.body.appendChild(lightbox);
+
+  const lightboxImage = lightbox.querySelector('.lightbox-image');
+  const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+  const closeButton = lightbox.querySelector('.lightbox-close');
+  let previousFocus = null;
+
+  const openLightbox = (trigger) => {
+    const sourceImage = trigger.querySelector('img');
+    previousFocus = trigger;
+    lightboxImage.src = trigger.getAttribute('href');
+    lightboxImage.alt = sourceImage?.alt || trigger.dataset.caption || 'Imagem ampliada do projeto';
+    lightboxCaption.textContent = trigger.dataset.caption || sourceImage?.alt || '';
+    lightbox.hidden = false;
+    document.body.classList.add('lightbox-open');
+    closeButton.focus();
+  };
+
+  const closeLightbox = () => {
+    if (lightbox.hidden) return;
+    lightbox.hidden = true;
+    lightboxImage.src = '';
+    document.body.classList.remove('lightbox-open');
+    previousFocus?.focus();
+  };
+
+  lightboxTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', (event) => {
+      event.preventDefault();
+      openLightbox(trigger);
+    });
+  });
+
+  closeButton.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !lightbox.hidden) closeLightbox();
   });
 }
 
