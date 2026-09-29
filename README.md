@@ -74,3 +74,12 @@ Consulte VALIDACAO.md para as verificações efetivamente executadas nesta entre
 ## Carrosséis de imagens
 
 As três páginas de projetos possuem uma galeria com quatro espaços em “Explore o projeto”. Consulte [GUIA_MIDIAS.md](GUIA_MIDIAS.md) para colocar suas fotos e editar as legendas. Navegação por setas, teclado e gesto; sem reprodução automática.
+
+
+## Português e inglês
+
+O seletor **PT / EN** no cabeçalho abre a mesma página no outro idioma. Português fica na raiz; inglês em `en/`, com os três cases em `en/projetos/`. Os links internos preservam o idioma escolhido e o seletor funciona sem JavaScript.
+
+Ao alterar conteúdo, atualize as páginas correspondentes nos dois idiomas. Estilos e comportamentos são compartilhados; as traduções das legendas e dos controles dinâmicos ficam em `js/main.js`. As capturas mostram a interface original dos produtos em português.
+
+O build publica as oito páginas. Com `SITE_URL`, gera canonical, alternativas `hreflang` e sitemap para ambos os idiomas. Para testar, execute `npm run dev`, alterne PT / EN na Home e em cada case, confira o menu no celular, navegue pelos carrosséis e abra/feche as imagens ampliadas.

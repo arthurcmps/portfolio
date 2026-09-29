@@ -1,3 +1,6 @@
+const isEnglish = document.documentElement.lang === 'en';
+const localized = (pt, en) => isEnglish ? en : pt;
+
 // Progressive enhancement: navigation remains available without JavaScript.
 document.documentElement.classList.add('js');
 const toggle = document.querySelector('.menu-toggle');
@@ -117,6 +120,47 @@ const projectMedia = {
   }
 };
 
+// Localize media descriptions and resolve shared assets from the English routes.
+if (isEnglish) {
+  const mediaTranslations = {
+    "Vitrine da loja do SaaS E-commerce com produtos disponíveis para compra": "E-commerce SaaS storefront showing products available to buy",
+    "Vitrine da loja": "Storefront",
+    "Carrinho de compras aberto na loja do SaaS E-commerce": "Open shopping cart in the E-commerce SaaS store",
+    "Carrinho de compras": "Shopping cart",
+    "Painel administrativo de pedidos do SaaS E-commerce": "E-commerce SaaS order management dashboard",
+    "Gestão de pedidos": "Order management",
+    "Dashboard do SaaS E-commerce com indicadores e métricas de vendas": "E-commerce SaaS sales report with filters and order totals",
+    "Relatórios e indicadores": "Reports and metrics",
+    "Tela inicial do Okan": "Okan home screen",
+    "Experiência principal do Okan": "Okan main experience",
+    "Tela inicial": "Home screen",
+    "Tela de treino em andamento no aplicativo Okan": "Workout in progress in the Okan app",
+    "Treino em andamento": "Workout in progress",
+    "Tela de histórico de treinos no aplicativo Okan": "Workout history in the Okan app",
+    "Histórico de treinos": "Workout history",
+    "Tela de evolução e acompanhamento de desempenho no Okan": "Progress and performance tracking in Okan",
+    "Evolução e acompanhamento": "Progress tracking",
+    "Painel administrativo web do Okan": "Okan web admin dashboard",
+    "Painel administrativo": "Admin dashboard",
+    "Tela de categorias de comunicação do aplicativo Voz Amiga": "Communication categories in the Voz Amiga app",
+    "Categorias de comunicação": "Communication categories",
+    "Categorias": "Categories",
+    "Tela de frases e pictogramas do aplicativo Voz Amiga": "Phrases and pictograms in the Voz Amiga app",
+    "Frases e pictogramas": "Phrases and pictograms",
+    "Tela de frases favoritas do aplicativo Voz Amiga": "Favorite phrases in the Voz Amiga app",
+    "Favoritos": "Favorites",
+    "Tela de perfil e preferências do aplicativo Voz Amiga": "Profile and preferences in the Voz Amiga app",
+    "Perfil e preferências": "Profile and preferences"
+};
+  Object.values(projectMedia).forEach(project => {
+    [project.cover, ...project.slides].forEach(media => {
+      media.src = '../' + media.src;
+      media.alt = mediaTranslations[media.alt];
+      media.caption = mediaTranslations[media.caption];
+    });
+  });
+}
+
 const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 const currentProjectMedia = projectMedia[currentPage];
 
@@ -128,7 +172,7 @@ if (currentProjectMedia) {
     coverLink.href = currentProjectMedia.cover.src;
     coverLink.dataset.lightbox = '';
     coverLink.dataset.caption = currentProjectMedia.cover.caption;
-    coverLink.setAttribute('aria-label', `Ampliar: ${currentProjectMedia.cover.caption}`);
+    coverLink.setAttribute('aria-label', `${localized("Ampliar", "Enlarge")}: ${currentProjectMedia.cover.caption}`);
 
     const coverImage = document.createElement('img');
     coverImage.src = currentProjectMedia.cover.src;
@@ -151,7 +195,7 @@ if (currentProjectMedia) {
     imageLink.href = media.src;
     imageLink.dataset.lightbox = '';
     imageLink.dataset.caption = media.caption;
-    imageLink.setAttribute('aria-label', `Ampliar: ${media.caption}`);
+    imageLink.setAttribute('aria-label', `${localized("Ampliar", "Enlarge")}: ${media.caption}`);
 
     const image = document.createElement('img');
     image.src = media.src;
@@ -177,10 +221,10 @@ if (lightboxTriggers.length) {
   lightbox.hidden = true;
   lightbox.setAttribute('role', 'dialog');
   lightbox.setAttribute('aria-modal', 'true');
-  lightbox.setAttribute('aria-label', 'Visualização ampliada da imagem');
+  lightbox.setAttribute('aria-label', localized('Visualização ampliada da imagem', 'Enlarged image'));
   lightbox.innerHTML = `
     <div class="lightbox-panel" role="document">
-      <button type="button" class="lightbox-close" aria-label="Fechar imagem ampliada">×</button>
+      <button type="button" class="lightbox-close" aria-label="${localized('Fechar imagem ampliada', 'Close enlarged image')}">×</button>
       <img class="lightbox-image" src="" alt="">
       <p class="lightbox-caption"></p>
     </div>
@@ -196,7 +240,7 @@ if (lightboxTriggers.length) {
     const sourceImage = trigger.querySelector('img');
     previousFocus = trigger;
     lightboxImage.src = trigger.getAttribute('href');
-    lightboxImage.alt = sourceImage?.alt || trigger.dataset.caption || 'Imagem ampliada do projeto';
+    lightboxImage.alt = sourceImage?.alt || trigger.dataset.caption || localized('Imagem ampliada do projeto', 'Enlarged project image');
     lightboxCaption.textContent = trigger.dataset.caption || sourceImage?.alt || '';
     lightbox.hidden = false;
     document.body.classList.add('lightbox-open');
@@ -242,14 +286,14 @@ document.querySelectorAll('[data-carousel]').forEach(carousel => {
     index = slides.reduce((best, slide, i) =>
       Math.abs(slide.getBoundingClientRect().left - left) <
       Math.abs(slides[best].getBoundingClientRect().left - left) ? i : best, 0);
-    counter.textContent = `${index + 1} de ${slides.length}`;
+    counter.textContent = `${index + 1} ${localized("de", "of")} ${slides.length}`;
   };
   const go = next => {
     index = (next + slides.length) % slides.length;
     const left = slides[index].getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft;
     track.scrollTo({ left, behavior: motion.matches ? 'instant' : 'smooth' });
   };
-  slides.forEach((slide, i) => slide.setAttribute('aria-label', `${i + 1} de ${slides.length}`));
+  slides.forEach((slide, i) => slide.setAttribute('aria-label', `${i + 1} ${localized("de", "of")} ${slides.length}`));
   controls.hidden = slides.length < 2;
   carousel.querySelector('[data-prev]').addEventListener('click', () => go(index - 1));
   carousel.querySelector('[data-next]').addEventListener('click', () => go(index + 1));

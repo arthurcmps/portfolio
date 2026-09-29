@@ -255,3 +255,10 @@
         transform: none
     }
 }
+
+@media (max-width: 767px) {
+    .header .brand { flex: 1; }
+    .header .language-switch { order: 2; }
+    .header .menu-toggle { order: 3; margin-left: auto; }
+    .header nav { order: 4; }
+}

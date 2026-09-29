@@ -23,3 +23,7 @@ O README contém checklist manual e lista completa de conteúdo pendente. A revi
 ## Atualização dos carrosséis
 
 As três páginas receberam carrosséis com quatro placeholders editáveis e links de código fora dos slides. Build aprovado. Testes em Chromium headless aprovados nas larguras 360, 768 e 1440 px: setas, tecla End, retorno da última foto para a primeira, ausência de overflow horizontal da página e de erros JavaScript. Fallback sem JavaScript verificado; inspeção visual da área realizada. As mídias reais ainda serão fornecidas pelo proprietário.
+
+## Versão em inglês
+
+As oito páginas (PT/EN) foram verificadas em Chromium nas larguras 360, 768 e 1440 px. Testes aprovados: seletor de idioma e destino equivalente, links e assets locais, carregamento das capturas, carrosséis, ampliação e fechamento de imagens, menu mobile e ausência de erros JavaScript ou overflow horizontal. O seletor também foi validado sem JavaScript. Revisão visual da Home em inglês realizada em desktop e celular. Build com SITE_URL aprovado, incluindo oito URLs no sitemap, canonical e hreflang. Capturas dos produtos permanecem no idioma original.
